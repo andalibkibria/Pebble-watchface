@@ -1,0 +1,21 @@
+{
+  "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "shortName": "ClassicAnalog",
+  "longName": "Classic Analog",
+  "companyName": "Your Name",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "KEY_TEMPERATURE": 0,
+    "KEY_CONDITIONS":  1,
+    "KEY_TEMP_UNIT":   2
+  },
+  "resources": {
+    "media": []
+  },
+  "capabilities": ["location"]
+}
