@@ -12,7 +12,6 @@
 // AppMessage keys (must match pebble-js-app.js)
 #define KEY_TEMPERATURE  0
 #define KEY_CONDITIONS   1
-#define KEY_TEMP_UNIT    2   // 0 = °C, 1 = °F
 
 // ── Globals ─────────────────────────────────────────────────────────────────
 
@@ -214,9 +213,10 @@ static void prv_tick_handler(struct tm *tick_time, TimeUnits changed) {
   // Request fresh weather every 30 minutes
   if (tick_time->tm_min % 30 == 0 && tick_time->tm_sec == 0) {
     DictionaryIterator *iter;
-    app_message_outbox_begin(&iter);
-    dict_write_uint8(iter, 0, 0);
-    app_message_outbox_send();
+    if (app_message_outbox_begin(&iter) == APP_MSG_OK) {
+      dict_write_uint8(iter, 0, 0);
+      app_message_outbox_send();
+    }
   }
 }
 
@@ -255,11 +255,7 @@ static void prv_window_load(Window *window) {
   Layer  *root   = window_get_root_layer(window);
   GRect   bounds = layer_get_bounds(root);
 
-#ifdef PBL_COLOR
   window_set_background_color(window, GColorBlack);
-#else
-  window_set_background_color(window, GColorBlack);
-#endif
 
   // ── Canvas ────────────────────────────────────────────────────────────────
   s_canvas = layer_create(bounds);

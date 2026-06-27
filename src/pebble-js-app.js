@@ -60,6 +60,10 @@ function fetchWeather() {
           try {
             var data    = JSON.parse(req.responseText);
             var current = data.current_weather;
+            if (!current || current.temperature === undefined) {
+              console.error('Unexpected API response shape');
+              return;
+            }
             var tempC   = Math.round(current.temperature);
             var code    = current.weathercode;
             var desc    = describeWMO(code);

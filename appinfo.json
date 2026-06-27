@@ -1,5 +1,5 @@
 {
-  "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "uuid": "f3a9c271-84be-4d1e-9c03-7b562e8fa104",
   "shortName": "ClassicAnalog",
   "longName": "Classic Analog",
   "companyName": "Your Name",
@@ -11,8 +11,7 @@
   },
   "appKeys": {
     "KEY_TEMPERATURE": 0,
-    "KEY_CONDITIONS":  1,
-    "KEY_TEMP_UNIT":   2
+    "KEY_CONDITIONS":  1
   },
   "resources": {
     "media": []

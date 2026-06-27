@@ -1,0 +1,27 @@
+# Pebble build output
+build/
+*.pbw
+*.pbz
+*.pbl
+
+# Waf (build system) internals
+.waf-*
+.lock-waf_*
+
+# Python bytecode (wscript is Python)
+*.pyc
+*.pyo
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
